@@ -1,12 +1,12 @@
 # Projetos de Sistemas Embarcados - EmbarcaTech 2025
 
-Autor: **(insira seu nome)**
+Autor: Thiago Young de Azevedo
 
 Curso: Residência Tecnológica em Sistemas Embarcados
 
 Instituição: EmbarcaTech - HBr
 
-Campinas, março de 2025
+Campinas, Março de 2025
 
 ---
 
