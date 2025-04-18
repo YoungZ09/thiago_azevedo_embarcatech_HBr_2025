@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Monitor_Temperatura_Interna_MCU Monitor_Temperatura_Interna_MCU.c inc/ssd1306_i2c.c)
+add_executable(Monitor_Temperatura_Interna_MCU src/Monitor_Temperatura_Interna_MCU.c inc/ssd1306_i2c.c)
 
 pico_set_program_name(Monitor_Temperatura_Interna_MCU "Monitor_Temperatura_Interna_MCU")
 pico_set_program_version(Monitor_Temperatura_Interna_MCU "0.1")

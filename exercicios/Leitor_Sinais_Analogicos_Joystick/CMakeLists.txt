@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Leitor_Sinais_Joystick Leitor_Sinais_Joystick.c inc/ssd1306_i2c.c)
+add_executable(Leitor_Sinais_Joystick src/Leitor_Sinais_Joystick.c inc/ssd1306_i2c.c)
 
 pico_set_program_name(Leitor_Sinais_Joystick "Leitor_Sinais_Joystick")
 pico_set_program_version(Leitor_Sinais_Joystick "0.1")

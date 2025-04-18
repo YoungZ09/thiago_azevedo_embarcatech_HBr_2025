@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Contador_Decrescente Contador_Decrescente.c inc/ssd1306_i2c.c)
+add_executable(Contador_Decrescente src/Contador_Decrescente.c inc/ssd1306_i2c.c)
 
 pico_set_program_name(Contador_Decrescente "Contador_Decrescente")
 pico_set_program_version(Contador_Decrescente "0.1")
