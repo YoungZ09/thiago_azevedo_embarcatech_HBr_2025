@@ -29,4 +29,6 @@ Cada projeto tem sua própria pasta, contendo o código-fonte, documentação e 
 - [Contador Decrescente com Registro de Eventos por Interrupção](./exercicios/Contador_Decrescente)
 - [Leitura dos Sinais Analógicos do Joystick](./exercicios/Leitor_Sinais_Analogicos_Joystick)
 - [Monitor da Temperatura Interna da MCU](./exercicios/Monitor_Temperatura_Interna_MCU)
+- [Estruturação de Código para Arquitetura Modular](./exercicios/Estruturacao_Codigo_Arquitetura_Modular)
+- [Teste Unitário](./exercicios/Teste_Unitario)
 
