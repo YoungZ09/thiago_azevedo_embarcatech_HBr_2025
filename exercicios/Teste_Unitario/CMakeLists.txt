@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Teste_Unitario  
+add_executable(Teste_Unitario 
     src/funcao_temp.c
     tests/teste_adc.c
     tests/unity.c)
@@ -58,7 +58,7 @@ target_include_directories(Teste_Unitario PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(Teste_Unitario 
-    )
+        )
 
 pico_add_extra_outputs(Teste_Unitario)
 

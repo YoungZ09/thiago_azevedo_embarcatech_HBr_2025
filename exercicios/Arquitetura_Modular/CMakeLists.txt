@@ -28,38 +28,38 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(Estruturacao_Codigo_Arquitetura_Modular C CXX ASM)
+project(Arquitetura_Modular C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Estruturacao_Codigo_Arquitetura_Modular 
-    app/main.c 
-    drivers/led_embutido.c 
+add_executable(Arquitetura_Modular  
+    app/main.c
+    drivers/led_embutido.c
     hal/hal_led.c)
 
-pico_set_program_name(Estruturacao_Codigo_Arquitetura_Modular "Estruturacao_Codigo_Arquitetura_Modular")
-pico_set_program_version(Estruturacao_Codigo_Arquitetura_Modular "0.1")
+pico_set_program_name(Arquitetura_Modular "Arquitetura_Modular")
+pico_set_program_version(Arquitetura_Modular "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(Estruturacao_Codigo_Arquitetura_Modular 0)
-pico_enable_stdio_usb(Estruturacao_Codigo_Arquitetura_Modular 1)
+pico_enable_stdio_uart(Arquitetura_Modular 0)
+pico_enable_stdio_usb(Arquitetura_Modular 1)
 
 # Add the standard library to the build
-target_link_libraries(Estruturacao_Codigo_Arquitetura_Modular
+target_link_libraries(Arquitetura_Modular
         pico_stdlib)
 
 # Add the standard include files to the build
-target_include_directories(Estruturacao_Codigo_Arquitetura_Modular PRIVATE
+target_include_directories(Arquitetura_Modular PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(Estruturacao_Codigo_Arquitetura_Modular 
+target_link_libraries(Arquitetura_Modular 
         
         pico_cyw43_arch_none)
 
-pico_add_extra_outputs(Estruturacao_Codigo_Arquitetura_Modular)
+pico_add_extra_outputs(Arquitetura_Modular)
 

@@ -1,4 +1,3 @@
-
 //As diretivas abaixo evitam que o conteúdo do arquivo seja incluído mais de uma vez durante a compilação, o que poderia causar erros
 
 // Verifica se a macro LED_EMBUTIDO_H já foi definida

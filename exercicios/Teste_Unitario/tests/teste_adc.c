@@ -25,16 +25,12 @@ void test_adc_to_celsius_known_value() { // Função de teste unitário. O Unity
 int main()
 {
     stdio_init_all(); // Inicializa os canais padrão de entrada/saída, necessário na Raspberry Pi Pico para uso de printf, especialmente em comunicação via UART
-    sleep_ms(2000);
-    printf("teste\n");
-
-    sleep_ms(3000);
-    printf("Iniciando teste\n"); // Mensagem exibida ao iniciar os testes (opcional, para feedback no terminal/serial)
-    sleep_ms(1000); // Espera 1 segundo para garantir que a saída anterior seja exibida corretamente antes de iniciar os testes
+    printf("Iniciando teste\n"); // Mensagem exibida ao iniciar o teste (opcional, para feedback no terminal/serial)
+    sleep_ms(3000); // Espera 3 segundos para garantir que a saída anterior seja exibida corretamente antes de iniciar o teste
 
     UNITY_BEGIN(); // Inicializa o sistema de testes do Unity
     RUN_TEST(test_adc_to_celsius_known_value); // Executa a função de teste definida acima
-    sleep_ms(5000); // Espera 5 segundos após a execução do teste para garantir que o resultado seja visível antes do encerramento
+    sleep_ms(6000); // Espera 6 segundos após a execução do teste para garantir que o resultado seja visível antes do encerramento
     return UNITY_END(); // Finaliza o teste e retorna o número de falhas encontradas
 
     }

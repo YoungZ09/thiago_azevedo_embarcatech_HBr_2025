@@ -59,6 +59,12 @@ Essa fórmula foi retirada da seguinte fonte:
 
 ---
 
+## Resultado do Teste
+
+![Resultado do Teste: 1 TESTE 0 FALHAS 0 IGNORADOS](./assets/monitor_putty.png)
+
+---
+
 ## Bibliotecas do Pacote SDK da Raspberry Pi Pico utilizadas
 
 - pico/stdlib.h: Fornece funções e tipos padrão (ex: uint16_t, stdio_init_all, sleep_ms).

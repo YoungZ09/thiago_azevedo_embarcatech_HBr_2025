@@ -43,6 +43,7 @@ Reestruture esse código seguindo a arquitetura modular recomendada:
 
 ### Estrutura Esperada do Projeto
 
+```
 projeto/
 ├── app/
 │   └── main.c
@@ -54,6 +55,7 @@ projeto/
 │   ├── led_embutido.h
 │   └── hal_led.h
 └── CMakeLists.txt
+```
 
 ---
 
