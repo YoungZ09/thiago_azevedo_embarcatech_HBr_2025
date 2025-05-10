@@ -12,6 +12,7 @@ typedef struct // Estrutura global possuindo componentes relacionadas a bola
 {
     int x;
     int y;
+
 }Ball;
 
 uint8_t ssd[ssd1306_buffer_length]; // Buffer global para a configuração e manipulação do display OLED
@@ -134,6 +135,51 @@ int main()
     stdio_init_all();
     config_display_oled();
     render_bitmap_manually(bitmap_128x64);
+
+    Ball new_ball; 
+    new_ball.x = 0;
+    new_ball.y = 31;
+
+    uint8_t direction;
+
+    // Loop para a bola descer antes da colisão com os pinos
+    for(int i = 0; i <= 38; i++) {
+        ssd1306_set_pixel(ssd, i, new_ball.y, true);
+        if(i-1 >= 0){
+        ssd1306_set_pixel(ssd, i-1, new_ball.y, false);
+        }
+        render_on_display(ssd, &frame_area);
+        sleep_ms(300);
+        new_ball.x = i;
+    }
+
+   for(int n = 0; n < 5; n++) {
+        if (new_ball.x = 38 + 6*n) {
+            direction = get_rand_32() & 1;
+            if (direction == 0 && new_ball.x > 0) {
+                new_ball.y += 6;
+                ssd1306_set_pixel(ssd, new_ball.x, new_ball.y, true);
+                render_on_display(ssd, &frame_area);
+                for(int a = 0; a <=5; a++) {
+                    new_ball.x++;
+                    ssd1306_set_pixel(ssd, new_ball.x, new_ball.y, true);
+                    ssd1306_set_pixel(ssd, new_ball.x-1, new_ball.y, false);
+                    render_on_display(ssd, &frame_area);
+                }
+            }
+            else if (direction == 1 && new_ball.x < (ssd1306_width - 1)) {
+                new_ball.y -= 6;
+                ssd1306_set_pixel(ssd, new_ball.x, new_ball.y, true);
+                render_on_display(ssd, &frame_area);
+                for(int a = 0; a <=5; a++) {
+                    new_ball.x++;
+                    ssd1306_set_pixel(ssd, new_ball.x, new_ball.y, true);
+                    ssd1306_set_pixel(ssd, new_ball.x-1, new_ball.y, false);
+                    render_on_display(ssd, &frame_area);
+                }
+            }
+        }
+   }
 
     while (true) {
 
