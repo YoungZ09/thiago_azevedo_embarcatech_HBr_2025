@@ -32,4 +32,5 @@ Cada projeto tem sua própria pasta, contendo o código-fonte, documentação e 
 - [Monitor da Temperatura Interna da MCU](./exercicios/Monitor_Temperatura_Interna_MCU)
 - [Estruturação de Código para Arquitetura Modular](./exercicios/Arquitetura_Modular)
 - [Teste Unitário](./exercicios/Teste_Unitario)
+- [Segurança em IoT com a BitDogLab](./exericios/Seguranca_em_IoT_com_BitDogLab)
 
