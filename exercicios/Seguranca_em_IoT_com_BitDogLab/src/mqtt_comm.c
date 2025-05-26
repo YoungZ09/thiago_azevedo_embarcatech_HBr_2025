@@ -92,6 +92,6 @@ void mqtt_comm_publish(const char *topic, const uint8_t *data, size_t len) {
     );
 
     if (status != ERR_OK) {
-        printf("mqtt_publish falhou ao ser enviada: %d\n", status);
+        printf("Publicação MQTT falhou ao ser enviada: %d\n", status);
     }
 }
