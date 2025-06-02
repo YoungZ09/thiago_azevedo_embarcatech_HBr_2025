@@ -2,7 +2,7 @@
 
 # Tarefa: IoT Security Lab - EmbarcaTech 2025
 
-Autor: Thiago Young de Azevedo
+Autor: Thiago Young de Azevedo e Luan Azzi
 
 Curso: Residência Tecnológica em Sistemas Embarcados
 
@@ -11,8 +11,6 @@ Instituição: EmbarcaTech - HBr
 Campinas, Maio de 2025
 
 ---
-
-<!-- INSIRA O CONTEÚDO DO SEU README AQUI! -->
 
 ---
 

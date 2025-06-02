@@ -5,6 +5,35 @@
 #include "include/wifi_conn.h"      // Funções personalizadas de conexão WiFi
 #include "include/mqtt_comm.h"      // Funções personalizadas para MQTT
 #include "include/xor_cipher.h"     // Funções de cifra XOR
+#include <time.h>                   // Funções de tempo
+#include <stdint.h>                 // Biblioteca que permite o uso de tipos inteiros com tamanho fixo
+#include "lwip/apps/mqtt.h"       // Biblioteca MQTT do lwIP
+
+char buffer[128]; // Buffer para armazenar o valor da mensagem original junto com o valor do tempo em que ela foi publicada
+
+uint32_t ultima_timestamp_recebida = 0; // Usando uint32_t para maior clareza
+
+// Doc: https://www.nongnu.org/lwip/2_1_x/group__mqtt.html#gafec7e75fe6a746eef9ca411463446c81
+// Exemplo simplificado de callback dos dados MQTT recebidos, ver link da documentação para mais informações
+void on_message(char* topic, char* msg) {
+    // 1. Parse do JSON (exemplo simplificado)
+    uint32_t nova_timestamp;
+    float valor;
+    if (sscanf(msg, "{\"valor\":%f,\"ts\":%lu}", &valor, &nova_timestamp) != 2) {
+        printf("Erro no parse da mensagem!\n");
+        return;
+    }
+
+    // 2. Verificação de replay
+    if (nova_timestamp > ultima_timestamp_recebida) {
+        ultima_timestamp_recebida = nova_timestamp;
+        printf("Nova leitura: %.2f (ts: %lu)\n", valor, nova_timestamp);
+        
+    } else {
+        printf("Replay detectado (ts: %lu <= %lu)\n", 
+               nova_timestamp, ultima_timestamp_recebida);
+    }
+}
 
 int main() {
     // Inicializa todas as interfaces de I/O padrão (USB serial, etc.)
@@ -17,7 +46,7 @@ int main() {
 
     // Configura o cliente MQTT - Etapa 2 
     // Parâmetros: ID do cliente, IP do broker, usuário, senha
-    mqtt_setup("bitdog1", "IP da rede onde o broker está rodando", "Thiago", "senha123");
+    mqtt_setup("bitdog1", "192.168.15.14", "Thiago", "senha123");
 
     // Mensagem original a ser enviada
     const char *mensagem = "26.5";
@@ -31,11 +60,20 @@ int main() {
     // Loop principal do programa
     while (true) {
         // Publica a mensagem original (não criptografada) - Etapa 3
-        mqtt_comm_publish("escola/sala1/temperatura", mensagem, strlen(mensagem));
+        //mqtt_comm_publish("escola/sala1/temperatura", mensagem, strlen(mensagem));
         
-        // Alternativa: Publica a mensagem criptografada (atualmente comentada) - Etapa 5
-        // mqtt_comm_publish("escola/sala1/temperatura", criptografada, strlen(mensagem));
+        // Publica a mensagem criptografada - Etapa 5
+        //mqtt_comm_publish("escola/sala1/temperatura", criptografada, strlen(mensagem));
         
+        // Buffer contendo informações como o valor da mensagem original e o timestamp referente a esta mensagem - Etapa 6
+        sprintf(buffer, "{\"valor\":26.5,\"ts\":%lu}", time(NULL));
+
+        // Publica a mensagem original com o valor de timestamp - Etapa 6
+        mqtt_comm_publish("escola/sala1/temperatura", buffer, strlen(buffer));
+
+        // Realiza a leitura do valor presente no tópico específico do broker MQTT - Etapa 6
+        //mqtt_subscribe(client, "escola/sala1/temperatura", 0, on_message, "escola/sala1/temperatura");
+
         // Aguarda 5 segundos antes da próxima publicação
         sleep_ms(5000);
     }
