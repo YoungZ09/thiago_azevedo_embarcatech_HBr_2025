@@ -22,6 +22,7 @@ Cada projeto tem sua própria pasta, contendo o código-fonte, documentação e 
 
 - [Sistema de Alarme para Medicamentos](./projetos/Alarme_de_Medicamentos)
 - [Galton Board](./projetos/Galton_Board)
+- [Sintetizador de Áudio](./projetos/Sintetizador_de_Audio)
 
 ---
 
