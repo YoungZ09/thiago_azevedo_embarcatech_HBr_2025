@@ -34,4 +34,5 @@ Cada projeto tem sua própria pasta, contendo o código-fonte, documentação e 
 - [Estruturação de Código para Arquitetura Modular](./exercicios/Arquitetura_Modular)
 - [Teste Unitário](./exercicios/Teste_Unitario)
 - [Segurança em IoT com a BitDogLab](./exercicios/Seguranca_em_IoT_com_BitDogLab)
+- [Projeto FreeRTOS - Multitarefa com LED, Buzzer e Botões](./exercicios/FreeRTOS_Multitarefa_LED_Buzzer_Botoes)
 
